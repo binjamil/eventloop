@@ -59,6 +59,8 @@ void startServer(Server *server) {
     exit(EXIT_FAILURE);
   }
 
+  printf("Listening on port %d\n", server->port);
+
   // The event loop
   while (1) {
     nfds = epoll_wait(epollfd, events, MAX_EVENTS, -1);
