@@ -10,7 +10,7 @@
 typedef struct Request {
   struct sockaddr client_addr;
   socklen_t addr_size;
-  int buf_len;
+  int server_sockfd;
   char *msg;
 } Request;
 

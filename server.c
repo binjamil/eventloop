@@ -79,7 +79,7 @@ void startServer(Server *server) {
           exit(EXIT_FAILURE);
         }
         // Run the callback
-        Request req = {client_addr, addr_size, BUF_SIZE, buf};
+        Request req = {client_addr, addr_size, sock, buf};
         server->cb_array[EventTypeMessage](&req);
       }
     }

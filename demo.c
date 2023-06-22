@@ -1,13 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "server.h"
 
 void handleMessage(Request *req) {
-  printf("msg=%s", req->msg);
+  if (sendto(req->server_sockfd, req->msg, BUF_SIZE, 0, &req->client_addr, req->addr_size) == -1) {
+    perror("send");
+    exit(EXIT_FAILURE);
+  }
 }
 
 int main() {
-  Server *s = createServer(19200);
+  Server *s = createServer(41234);
 
   on(s, EventTypeMessage, handleMessage);
 
