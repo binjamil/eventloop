@@ -7,7 +7,7 @@ void handleMessage(Request *req) {
 }
 
 int main() {
-  Server *s = createServer(8080);
+  Server *s = createServer(19200);
 
   on(s, EventTypeMessage, handleMessage);
 
